@@ -23,9 +23,11 @@ void listar_produtos(Produto lista[], int total) {
 
 float calcular_total(Produto lista[], int total) {
     float soma = 0.0;
+
     for (int i = 0; i < total; i++) {
         soma += lista[i].preco * lista[i].quantidade;
     }
+
     return soma + soma * TAXA_PADRAO;
 }
 
@@ -48,8 +50,10 @@ int main(void) {
     estoque[1].quantidade = 50;
 
     int opcao = -1;
+
     while (opcao != 0) {
         exibir_menu();
+
         if (scanf("%d", &opcao) != 1) {
             break;
         }
@@ -58,18 +62,26 @@ int main(void) {
             case 1:
                 listar_produtos(estoque, total_produtos);
                 break;
+
             case 2:
-                printf("\nTotal em estoque: R$ %.2f\n", calcular_total(estoque, total_produtos));
+                printf("\nTotal em estoque: R$ %.2f\n",
+                       calcular_total(estoque, total_produtos));
                 break;
+
             case 3:
-                printf("\nTotal a vista: R$ %.2f\n", aplicar_desconto(calcular_total(estoque, total_produtos)));
+                printf("\nTotal a vista: R$ %.2f\n",
+                       aplicar_desconto(calcular_total(estoque, total_produtos)));
                 break;
+
             case 4:
-                printf("\nTotal a prazo: R$ %.2f\n", aplicar_juros(calcular_total(estoque, total_produtos)));
+                printf("\nTotal a prazo: R$ %.2f\n",
+                       aplicar_juros(calcular_total(estoque, total_produtos)));
                 break;
+
             case 0:
                 printf("\nEncerrando o programa...\n");
                 break;
+
             default:
                 printf("\nOpcao invalida!\n");
                 break;
