@@ -22,5 +22,4 @@ float calcular_total(Produto lista[], int total);
 
 float aplicar_juros(float total);
 float aplicar_desconto(float total);
-
 #endif
